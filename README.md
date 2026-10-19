@@ -1,3 +1,5 @@
+<img width="1935" height="813" alt="WW" src="https://github.com/user-attachments/assets/36e14a24-178f-4e50-87a7-c92d33056189" />
+
 # Workmark — Know the work. Mark the change.
 
 Workmark is a local-first scope-change assistant for freelancers and small agencies. It keeps the signed-off scope visible beside the client’s new request, records uncertain findings for human review, and prepares an editable reply. Replies are never sent automatically.
