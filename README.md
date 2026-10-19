@@ -4,10 +4,25 @@ Workmark is a local-first scope-change assistant for freelancers and small agenc
 
 ## Architecture
 
-- `src/`: React, TypeScript, Vite, React Router, TanStack Query, Zod-ready client stack, and Tailwind CSS. The editorial comparison UI is custom CSS.
+- `src/`: React, TypeScript, Vite, React Router, TanStack Query, Zod validation, Lucide icons, Tailwind CSS base setup, and custom CSS for the editorial interface.
 - `backend/main.py`: FastAPI REST endpoints; `backend/schemas.py` validates API data; `backend/services.py` holds deterministic demo rules, model-provider integration, and response drafting.
 - `backend/models.py` and `backend/database.py`: SQLAlchemy persistence to SQLite by default. Project agreements, extracted line items, analyses, review decisions, notes, and drafts are persisted.
 - `workmark.db`: created on first backend start; includes the Northstar demo project and request.
+
+## Tech stack
+
+| Area | Technology in this project |
+| --- | --- |
+| Frontend | React 18, TypeScript, Vite |
+| Routing and server state | React Router 6, TanStack Query 5 |
+| Input validation | Zod in the frontend; Pydantic 2 in the API |
+| Interface and icons | Custom responsive CSS with Tailwind CSS base/configuration; Lucide React |
+| Backend API | Python, FastAPI, Uvicorn |
+| Persistence | SQLAlchemy 2 with SQLite by default |
+| AI analysis | Optional open-weight model through an OpenAI-compatible chat-completions API; deterministic demo analysis when no provider is configured or a provider fails |
+| Tests | Vitest, React Testing Library, and jsdom for frontend workflows; pytest for backend classification, validation, and persistence |
+
+Tailwind is part of the frontend setup, while the distinctive Workmark layout and styling are authored in `src/style.css`. Model credentials and endpoint settings belong in the backend `.env`; they are not sent to the browser bundle.
 
 There is no authentication. This is a single-user local-development application; do not expose it to a public network with confidential client material. Pasted text is limited to 20,000 characters per request and 50,000 per agreement. Workmark does not log client request bodies. Configure CORS origins before deployment, use TLS and authentication, and choose a protected database before serving multiple users.
 
